@@ -22,6 +22,15 @@ class EEngine
 	{
 		
 	}
+	
+	private:
+	
+	void Init()
+	{
+		
+	}
+	
+	
 };
 
 #endif
