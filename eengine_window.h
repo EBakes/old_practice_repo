@@ -19,6 +19,6 @@ class eengine_window
 	
 	private:
 	
-}
+};
 
 #endif
