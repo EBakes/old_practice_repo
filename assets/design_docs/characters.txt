@@ -1,0 +1,7 @@
+The potential adult form of the character will be designed when you make
+a character or need to respawn. When you enter the world - you will take
+over the genetically closest npc kid to the character that you had made.
+
+There are character-bound banks in the world. These get lost upon death.
+There are also player-bound banks in the world. These persist throughout
+different characters and are location specific.
