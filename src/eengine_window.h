@@ -25,17 +25,24 @@ class eengine_window
 	void Init()
 	{
 		Init_glfw();
+		
+		template_array<graphics_handler<engine_index>, engine_index>::Data().Init();
 	}
 	
 	void Update()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glfwSwapBuffers(template_array<GLFWwindowPtr, engine_index>::Data());
+		
 		glfwPollEvents();
+	
+		template_array<graphics_handler<engine_index>, engine_index>::Data().Update();
 	}
 	
 	void Shutdown()
 	{
+		template_array<graphics_handler<engine_index>, engine_index>::Data().Shutdown();
+		
 		glfwTerminate();	
 	}
 	
