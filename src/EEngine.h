@@ -18,18 +18,12 @@ class EEngine
 		eengine_window<engine_index>();
 	}
 	
-	void Run()
+	void operator()()
 	{
-		
+		eengine_window<engine_index>().Init();
 	}
 	
 	private:
-	
-	void Init()
-	{
-		
-	}
-	
 	
 };
 

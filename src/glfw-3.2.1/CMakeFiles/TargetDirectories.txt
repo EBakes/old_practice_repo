@@ -1,0 +1,14 @@
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/install.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/list_install_components.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/rebuild_cache.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/uninstall.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/install/strip.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/install/local.dir
+/home/ebakes/Projects/glfw-3.2.1/CMakeFiles/edit_cache.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/install.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/list_install_components.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/rebuild_cache.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/edit_cache.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/glfw.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/install/strip.dir
+/home/ebakes/Projects/glfw-3.2.1/src/CMakeFiles/install/local.dir

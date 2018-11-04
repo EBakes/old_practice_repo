@@ -2,4 +2,4 @@
 echo "Building EEngine. . ."
 cd build_dir
 make 
-make test
+./EEngine
