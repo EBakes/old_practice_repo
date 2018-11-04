@@ -23,7 +23,7 @@ struct Vector3f
 template <unsigned engine_index>
 class graphics_handler
 {
-	Vector3f verts;
+	Vector3f verts[1];
 	
 	GLuint VBO;
 	
@@ -42,13 +42,16 @@ class graphics_handler
 			std::cerr << "GLEW INIT FAILED" << std::endl;
 		}
 		
-		verts = Vector3f();
-		
+		verts[0] = Vector3f();
+	
 		glGenBuffers(1, &VBO);
 		
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		
-		glBufferData(GL_ARRAY_BUFFER, sizeof(verts), &verts, GL_STATIC_DRAW);
+	}
+	
+	void Update()
+	{
+		glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);
 		
@@ -59,11 +62,6 @@ class graphics_handler
 		glDrawArrays(GL_POINTS, 0, 1);
 		
 		glDisableVertexAttribArray(0);
-
-	}
-	
-	void Update()
-	{
 		
 	}
 	

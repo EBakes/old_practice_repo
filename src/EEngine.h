@@ -14,12 +14,12 @@ class EEngine
 {
 	public:
 	
-	EEngine()
+	EEngine(): exit_code(0)
 	{
 		
 	}
 	
-	void operator()()
+	int operator()()
 	{
 		template_array<eengine_window<engine_index>, engine_index>::Data().Init();
 		
@@ -30,10 +30,17 @@ class EEngine
 		while (!template_array<eengine_window<engine_index>, engine_index>::Data().ShouldWindowClose());
 		
 		template_array<eengine_window<engine_index>, engine_index>::Data().Shutdown();
+		
+		return exit_code;
+	}
+	
+	void Exit(int i_exit_code)
+	{
+		exit_code = i_exit_code;
 	}
 
 	private:
-	
+	int exit_code;
 };
 
 #endif

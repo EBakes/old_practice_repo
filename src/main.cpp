@@ -5,10 +5,9 @@
 // @brief  contains start of program
 // ---------------------------------------------------------------------
 #include "EEngine.h"
-	
+#include "glewbind.h"
+
 int main(int argc, char** argv)
 {
-	EEngine<0>()();
-		
-	return 0;
+	return EEngine<0>()();
 }

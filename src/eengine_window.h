@@ -30,7 +30,7 @@ class eengine_window
 	}
 	
 	void Update()
-	{
+	{		
 		glClear(GL_COLOR_BUFFER_BIT);
 		glfwSwapBuffers(template_array<GLFWwindowPtr, engine_index>::Data());
 		

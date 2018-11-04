@@ -16,7 +16,7 @@ include_directories(
         ${GLFW_INCLUDE_DIRS}
         ${GLEW_INCLUDE_DIR})
 
-set(SOURCE_FILES main.cpp glewbind.cpp)
+set(SOURCE_FILES main.cpp)
 
 add_executable(EEngine ${SOURCE_FILES})
 
