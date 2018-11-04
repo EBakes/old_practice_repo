@@ -16,7 +16,7 @@ class EEngine
 	
 	EEngine()
 	{
-		//template_array<eengine_window<engine_index>, engine_index>::Data();
+		
 	}
 	
 	void operator()()
@@ -28,6 +28,8 @@ class EEngine
 			template_array<eengine_window<engine_index>, engine_index>::Data().Update();
 		}
 		while (!template_array<eengine_window<engine_index>, engine_index>::Data().ShouldWindowClose());
+		
+		template_array<eengine_window<engine_index>, engine_index>::Data().Shutdown();
 	}
 
 	private:

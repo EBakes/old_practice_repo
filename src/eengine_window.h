@@ -6,28 +6,20 @@
 // ---------------------------------------------------------------------
 #ifndef EENGINE_WINDOW_H
 #define EENGINE_WINDOW_H
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
 #include "template_array.h"
-
+#include "eengine_graphics.h"
 typedef GLFWwindow* GLFWwindowPtr; 
 
 template <unsigned engine_index>
 class eengine_window
-{	
-	private:
-	GLFWwindow * m_window;
+{
 	public:
-	
-	eengine_window()
-	{
-		 
-	}
 	
 	bool ShouldWindowClose()
 	{
 		return glfwWindowShouldClose(template_array<GLFWwindowPtr, engine_index>::Data());
-		//return glfwWindowShouldClose(m_window);
 	}
 	
 	void Init()
@@ -39,7 +31,6 @@ class eengine_window
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 		glfwSwapBuffers(template_array<GLFWwindowPtr, engine_index>::Data());
-		//glfwSwapBuffers(m_window);
 		glfwPollEvents();
 	}
 	
@@ -54,18 +45,13 @@ class eengine_window
 	{
 		if (!glfwInit())
 		{
-			std::cerr << "GLFW INIT FAILED" << std::endl;
 			return -1;
 		}
 		
-		template_array<GLFWwindowPtr, engine_index>::Data()  = glfwCreateWindow(640, 480, "EEngine V0.0", nullptr, 
-															  nullptr);
-		//m_window  = glfwCreateWindow(640, 480, "EEngine V0.0", 0, 
-			//												  0	);
+		template_array<GLFWwindowPtr, engine_index>::Data()  = glfwCreateWindow(640, 480, "EEngine V0.0", nullptr, nullptr);
 															  
 		if (template_array<GLFWwindowPtr, engine_index>::Data() == nullptr)
 		{
-			std::cerr << "COULD NOT MAKE WINDOW" << std::endl;
 			glfwTerminate();
 			return -1;
 		}
