@@ -7,14 +7,16 @@
 #ifndef EENGINE_WINDOW_H
 #define EENGINE_WINDOW_H
 #include <GLFW/glfw3.h>
+#include <iostream>
+#include "template_array.h"
+
+typedef GLFWwindow* GLFWwindowPtr; 
 
 template <unsigned engine_index>
 class eengine_window
-{
+{	
 	private:
-	
-	static GLFWwindow * m_window;
-	
+	GLFWwindow * m_window;
 	public:
 	
 	eengine_window()
@@ -24,45 +26,52 @@ class eengine_window
 	
 	bool ShouldWindowClose()
 	{
-		return glfwWindowShouldClose(m_window);
+		return glfwWindowShouldClose(template_array<GLFWwindowPtr, engine_index>::Data());
+		//return glfwWindowShouldClose(m_window);
 	}
 	
 	void Init()
 	{
-		glfwInit();
+		Init_glfw();
 	}
 	
 	void Update()
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
-		glfwSwapBuffers(m_window);
+		glfwSwapBuffers(template_array<GLFWwindowPtr, engine_index>::Data());
+		//glfwSwapBuffers(m_window);
 		glfwPollEvents();
 	}
 	
 	void Shutdown()
 	{
-		glfwTerminate();
+		glfwTerminate();	
 	}
 	
 	private:
 	
-	int glfwInit()
+	int Init_glfw()
 	{
 		if (!glfwInit())
 		{
+			std::cerr << "GLFW INIT FAILED" << std::endl;
 			return -1;
 		}
 		
-		m_window = glfwCreateWindow(640, 480, "EEngine V0.0", nullptr, 
+		template_array<GLFWwindowPtr, engine_index>::Data()  = glfwCreateWindow(640, 480, "EEngine V0.0", nullptr, 
 															  nullptr);
+		//m_window  = glfwCreateWindow(640, 480, "EEngine V0.0", 0, 
+			//												  0	);
 															  
-		if (!m_window)
+		if (template_array<GLFWwindowPtr, engine_index>::Data() == nullptr)
 		{
+			std::cerr << "COULD NOT MAKE WINDOW" << std::endl;
 			glfwTerminate();
 			return -1;
 		}
 		
-		glfwMakeContextCurrent(m_window);									  
+		glfwMakeContextCurrent(template_array<GLFWwindowPtr, engine_index>::Data());		
+		return 0;							  
 	}
 	
 };

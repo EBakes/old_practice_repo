@@ -7,6 +7,7 @@
 #ifndef EENGINE_H
 #define EENGINE_H
 #include "eengine_window.h"
+#include "template_array.h"
 
 template <unsigned engine_index = 0>
 class EEngine
@@ -15,14 +16,20 @@ class EEngine
 	
 	EEngine()
 	{
-		eengine_window<engine_index>();
+		//template_array<eengine_window<engine_index>, engine_index>::Data();
 	}
 	
 	void operator()()
 	{
-		eengine_window<engine_index>().Init();
+		template_array<eengine_window<engine_index>, engine_index>::Data().Init();
+		
+		do
+		{
+			template_array<eengine_window<engine_index>, engine_index>::Data().Update();
+		}
+		while (!template_array<eengine_window<engine_index>, engine_index>::Data().ShouldWindowClose());
 	}
-	
+
 	private:
 	
 };

@@ -4,7 +4,12 @@
 template <typename T, unsigned i = 0>
 struct template_array
 {
-	static T data;
+	static T& Data()
+	{
+		static T data;
+		return data;
+	}
+	
 };
 
 #endif
