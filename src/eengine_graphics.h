@@ -4,6 +4,8 @@
 // @file   eengine_graphics.h
 // @brief  contains eengine_window implementation
 // ---------------------------------------------------------------------
+#ifndef EENGINE_GRAPHICS_H
+#define EENGINE_GRAPHICS_H
 #include <GL/glew.h>
 #include <iostream>
 
@@ -70,3 +72,5 @@ class graphics_handler
 		
 	}
 };
+
+#endif
