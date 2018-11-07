@@ -10,9 +10,10 @@
 #include <GLFW/glfw3.h>
 #include "template_array.h"
 #include "eengine_graphics.h"
+
 typedef GLFWwindow* GLFWwindowPtr; 
 
-int Exit()
+int EngineExit()
 {
 	
 }
@@ -68,7 +69,7 @@ class eengine_window
 			return -1;
 		}
 		
-		glfwSetWindowCloseCallback((GLFWWindowCloseFun)Exit);
+		//glfwSetWindowCloseCallback((GLFWwindowCloseFun)Exit);
 		
 		glfwMakeContextCurrent(template_array<GLFWwindowPtr, engine_index>::Data());		
 		return 0;							  

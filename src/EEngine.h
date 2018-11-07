@@ -35,7 +35,7 @@ class EEngine
 		return exit_code;
 	}
 	
-	void Exit(int i_exit_code)
+	void Exit(int i_exit_code = 0)
 	{
 		exit_code = i_exit_code;
 		next_state = shutdown;
