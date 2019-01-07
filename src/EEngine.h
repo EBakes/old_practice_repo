@@ -8,6 +8,9 @@
 #define EENGINE_H
 #include "eengine_window.h"
 #include "template_array.h"
+#include "reflection.h"
+#include "glewbind.h"
+#include <iostream>
 
 enum state
 {
@@ -15,6 +18,14 @@ enum state
 	update,
 	shutdown,
 	exit_engine
+};
+
+struct myStruct
+{
+	void Init()
+	{
+		
+	}
 };
 
 template <unsigned engine_index = 0>
@@ -30,7 +41,18 @@ class EEngine
 	
 	int operator()()
 	{
-		NextState();
+		auto has_init = is_valid([](auto&& x) -> decltype(x.Init()) {} );
+		
+		constexpr if (has_init(eengine_window<engine_index>))
+		{
+			std::cout << "it haas init" << std::endl;
+		}
+		template_array<eengine_window<engine_index>, engine_index>::Data().Init();
+		
+		template_array<eengine_window<engine_index>, engine_index>::Data().Update();
+		
+		template_array<eengine_window<engine_index>, engine_index>::Data().Shutdown();
+		
 		
 		return exit_code;
 	}
@@ -71,11 +93,7 @@ class EEngine
 			// todo: log stuff
 			break;
 		}
-		
 	}	
-
-	
-
 };
 
 #endif

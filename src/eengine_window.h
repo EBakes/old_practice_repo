@@ -6,6 +6,7 @@
 // ---------------------------------------------------------------------
 #ifndef EENGINE_WINDOW_H
 #define EENGINE_WINDOW_H
+#include <chrono>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "template_array.h"
@@ -36,7 +37,9 @@ class eengine_window
 	}
 	
 	void Update()
-	{		
+	{
+		
+		
 		glClear(GL_COLOR_BUFFER_BIT);
 		glfwSwapBuffers(template_array<GLFWwindowPtr, engine_index>::Data());
 		
@@ -53,7 +56,8 @@ class eengine_window
 	}
 	
 	private:
-	
+	std::chrono::duration<float> frame_time;
+
 	int Init_glfw()
 	{
 		if (!glfwInit())
